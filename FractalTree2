@@ -1,0 +1,26 @@
+public class FractalTree2{
+
+    public static void main(String[] args){
+      Turtle t = new Turtle();
+      t.delay(1);
+      tree(t,150,10);
+    }
+    public static void tree(Turtle t, double size, int level) {
+      if(level == 0){ //Base Case
+        t.forward(size);
+        t.backward(size);
+      } else{ //Recursive case
+        //Stem
+        t.forward(size);
+        //first branch
+        t.left(45);
+        tree(t,size * 0.6, level - 1);
+        //Second branch
+        t.right(45 + 45);
+        tree(t, size * 0.6, level - 1);
+        t.left(45);
+        t.backward(size);
+      }
+    }
+
+}
